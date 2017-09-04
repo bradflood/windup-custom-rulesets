@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<ruletest id="bwf-tests" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+
+    <testDataPath>data</testDataPath>
+    <rulePath>../bwf.windup.xml</rulePath>
+    <ruleset>
+        <rules>
+            <rule id="bwf-00000-test">
+                <when>
+                    <not>
+                        <hint-exists message="Junit 3 should be upgraded.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Hint not found: Junit 3 " />
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

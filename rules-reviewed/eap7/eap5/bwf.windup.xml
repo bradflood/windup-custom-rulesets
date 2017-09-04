@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<ruleset id="bwf" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+
+    <metadata>
+        <description>
+            BWF dev
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-java,2.5.0.Final" />
+        </dependencies>
+        <sourceTechnology id="java-ee" />
+        <targetTechnology id="eap" versionRange="[7,)" />
+    </metadata>
+
+    <rules>
+        <rule id="bwf-00000">
+            <when>
+                <javaclass references="junit.framework.TestCase">
+                    <location>INHERITANCE</location>
+                </javaclass>
+            </when>
+            <perform>
+                <hint title="Junit 3 Test Case" effort="2" category-id="optional">
+                    <message>Junit 3 should be upgraded. Junit 4 (and soon, 5) provide better abstractions and separation of concern regarding test case preparation and execution. However, Junit 4 runners can execute existing Junit 3 tests</message>
+                    <link href="http://junit.org"
+                        title="Junit 4" />
+                    <tag>junit</tag>
+                    <tag>automated-test</tag>
+                </hint>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>
